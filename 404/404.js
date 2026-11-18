@@ -1,18 +1,26 @@
 // ============================================
-// 404 — LAVENDER SHADER PARALLAX
-// Same effect as landingPage.js, re-run for
-// this document since it's a separate page.
+// 404 PAGE — shader parallax only.
+//
+// Duplicates the shader-parallax block from
+// landingPage.js intentionally. The 404 page
+// has no orbit and no scroll-to-projects
+// button, so loading the full landingPage.js
+// would add dead handlers.
+//
+// If the shader parallax logic changes,
+// update both files. The block is ~20 lines.
+//
+// The orbit on this page is decorative and
+// intentionally has no click-pulse.
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const shaderBg = document.getElementById('shaderBg');
     if (!shaderBg) return;
 
-    // Respect reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Third lavender blob (same as landing)
     const thirdBlob = document.createElement('div');
     thirdBlob.classList.add('blob-third');
     shaderBg.appendChild(thirdBlob);

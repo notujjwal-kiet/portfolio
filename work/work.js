@@ -1,15 +1,15 @@
 // ============================================
 // WORK PAGE — page-specific behaviour
-// landingPage.js already handles shader parallax.
-// This file exists for work-page-only hooks.
+//
+// No interactive behaviour yet. Project
+// "Case study coming soon" spans are
+// intentionally non-links until real case
+// study pages exist.
+//
+// File kept so the page's script tag doesn't
+// 404 and so future hooks have a home.
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Project links are placeholders for now — log so we know they're wired
-    document.querySelectorAll('.project-link').forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Project case study route not built yet:', link.closest('.preview-item')?.querySelector('h3')?.textContent);
-        });
-    });
+    // Placeholder.
 });
