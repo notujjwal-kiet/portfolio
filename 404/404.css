@@ -1,0 +1,40 @@
+/* ============================================
+   404 — page-specific overrides
+   Inherits everything from landingPage.css
+   ============================================ */
+
+/* Hero gets a bit of breathing room since there's less content */
+.hero.notfound {
+    flex: 1;
+    justify-content: center;
+    padding: 2rem 0 6rem;
+}
+
+/* A touch more space under the description before the buttons */
+.hero.notfound .hero-description {
+    margin-bottom: 2.5rem;
+}
+
+/* Primary CTA is a link on this page, not a button — keep it identical */
+a.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* The orbit on 404 uses a slightly dimmer outer ring so the
+   "lost" feeling reads without shouting */
+.notfound .orbit-outer {
+    border-color: rgba(180, 140, 255, 0.18);
+}
+
+/* On small screens, keep the orbit hidden (inherited rule does this),
+   but the CTA group should stack neatly */
+@media (max-width: 768px) {
+    .hero.notfound {
+        padding-bottom: 4rem;
+    }
+}

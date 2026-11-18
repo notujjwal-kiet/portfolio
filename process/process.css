@@ -1,0 +1,63 @@
+/* ============================================
+   PROCESS PAGE — page-specific overrides
+   Inherits landingPage.css
+   ============================================ */
+
+.page-hero {
+    padding-bottom: 2rem;
+}
+
+.process-steps {
+    max-width: 800px;
+    margin: 1rem 0 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step {
+    border-left: 2px solid rgba(180, 140, 255, 0.25);
+    padding-left: 1.8rem;
+    transition: border-color 0.25s ease;
+}
+
+.step:hover {
+    border-left-color: #FF8A3D;
+}
+
+.step-number {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #FF8A3D;
+    letter-spacing: 2px;
+    margin-bottom: 0.6rem;
+}
+
+.step h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.7rem;
+}
+
+.step p {
+    color: #a8a8b2;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding-bottom: 1rem;
+    }
+
+    .step {
+        padding-left: 1.2rem;
+    }
+
+    .step h2 {
+        font-size: 1.25rem;
+    }
+}

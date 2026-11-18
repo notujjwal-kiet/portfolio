@@ -1,0 +1,87 @@
+/* ============================================
+   CONTACT PAGE — page-specific overrides
+   Inherits landingPage.css
+   ============================================ */
+
+.page-hero {
+    padding-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 720px;
+    margin: 1rem 0 2rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 2rem;
+    background: rgba(20, 20, 28, 0.7);
+    border: 1px solid rgba(180, 140, 255, 0.2);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: #FF8A3D;
+    background: rgba(30, 30, 40, 0.8);
+    transform: translateX(6px);
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #B48CFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.contact-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e8e8ee;
+}
+
+.contact-arrow {
+    font-size: 1.5rem;
+    color: #FF8A3D;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .contact-arrow {
+    transform: translateX(6px);
+}
+
+.contact-note {
+    max-width: 720px;
+    margin-bottom: 4rem;
+}
+
+.contact-note p {
+    color: #a8a8b2;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    border-left: 3px solid #B48CFF;
+    padding-left: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding-bottom: 1rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .contact-value {
+        font-size: 0.95rem;
+    }
+}

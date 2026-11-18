@@ -1,0 +1,537 @@
+/* ============================================
+   GLOBAL RESET & FONTS
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0B0B0F;  /* deep space black */
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   LAVENDER SHADER BACKDROP
+   Solid-color blobs + blur — no gradients.
+   ============================================ */
+.shader-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-color: #0B0B0F;
+}
+
+.shader-bg::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 70%;
+    height: 70%;
+    background-color: rgba(180, 140, 255, 0.14);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: drift 22s ease-in-out infinite alternate;
+}
+
+.shader-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    right: -10%;
+    width: 80%;
+    height: 80%;
+    background-color: rgba(160, 120, 255, 0.12);
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: drift 28s ease-in-out infinite alternate-reverse;
+}
+
+.shader-bg .blob-third {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 45%;
+    height: 45%;
+    background-color: rgba(200, 160, 255, 0.10);
+    border-radius: 50%;
+    filter: blur(90px);
+    animation: drift 20s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+    0%   { transform: translate(0%, 0%) scale(1); }
+    100% { transform: translate(6%, -4%) scale(1.15); }
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================
+   HEADER / NAV
+   ============================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    color: #FF8A3D;
+    text-shadow: 0 0 15px rgba(255, 138, 61, 0.3);
+    position: relative;
+}
+
+.logo::after {
+    content: '●';
+    font-size: 0.8rem;
+    position: relative;
+    top: -3px;
+    left: 6px;
+    color: #B48CFF;
+    opacity: 0.9;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #d0d0d0;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.2s, transform 0.2s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #FF8A3D;
+    transform: translateY(-2px);
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FF8A3D;
+    transition: width 0.25s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding: 2rem 0 4rem;
+    max-width: 1000px;
+}
+
+.hero-tagline {
+    color: #B48CFF;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 1.8rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-tagline span {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: #FF8A3D;
+    border-radius: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 .accent {
+    color: #FF8A3D;
+    display: inline-block;
+    position: relative;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    color: #b0b0b8;
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    border-left: 4px solid #FF8A3D;
+    padding-left: 1.8rem;
+    font-weight: 300;
+}
+
+.hero-description strong {
+    color: #B48CFF;
+    font-weight: 600;
+}
+
+/* ============================================
+   CTA BUTTONS
+   ============================================ */
+.cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.btn-primary,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 60px;
+    line-height: 1;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background: #FF8A3D;
+    color: #0B0B0F;
+    border: 1px solid transparent;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 20px rgba(255, 138, 61, 0.25);
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #B48CFF;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(180, 140, 255, 0.35);
+    color: #0B0B0F;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #B48CFF;
+    border: 1.5px solid #B48CFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    border-color: #FF8A3D;
+    color: #FF8A3D;
+    transform: translateY(-3px);
+    background: rgba(255, 138, 61, 0.08);
+}
+
+/* ============================================
+   ORBIT RINGS
+   ============================================ */
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(180, 140, 255, 0.25);
+    pointer-events: none;
+}
+
+/* Outer ring — anchored right, rotating clockwise */
+.orbit-outer {
+    right: -12%;
+    top: 50%;
+    width: 420px;
+    height: 420px;
+    margin-top: -210px;
+    animation: spin 28s linear infinite;
+    pointer-events: auto;            /* clickable for the pulse */
+    cursor: pointer;
+}
+
+.orbit-outer::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #FF8A3D;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 12px rgba(255, 138, 61, 0.7);
+}
+
+/* Inner ring — same centre, counter-rotating, faster */
+.orbit-inner {
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 260px;
+    margin-top: -130px;
+    margin-left: -130px;
+    border-color: rgba(255, 138, 61, 0.55);
+    box-shadow: 0 0 14px rgba(255, 138, 61, 0.18);
+    animation: spin 20s linear infinite reverse;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ---------- ORBIT CLICK PULSE ---------- */
+
+/* Expanding ring emitted from the orange dot's position */
+.orbit-outer.pulsing::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #FF8A3D;
+    transform: translateX(-50%);
+    animation: dotPulse 0.9s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes dotPulse {
+    0% {
+        width: 10px;
+        height: 10px;
+        opacity: 0.9;
+        top: -5px;
+        margin-left: -5px;
+        border-width: 2px;
+    }
+    100% {
+        width: 80px;
+        height: 80px;
+        opacity: 0;
+        top: -40px;
+        margin-left: -40px;
+        border-width: 1px;
+    }
+}
+
+/* Speed up the spin while pulsing (discrete snap — intentional) */
+.orbit-outer.pulsing {
+    animation-duration: 8s;
+}
+
+/* ============================================
+   PROJECT / WORK GRID
+   ============================================ */
+.preview-grid {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 3rem;
+}
+
+.preview-item {
+    background: rgba(20, 20, 28, 0.7);
+    border-radius: 24px;
+    padding: 2rem 1.8rem;
+    border: 1px solid rgba(180, 140, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.preview-item:hover {
+    border-color: #FF8A3D;
+    transform: translateY(-6px);
+    background: rgba(30, 30, 40, 0.8);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7);
+}
+
+.preview-item .number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #B48CFF;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.preview-item h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+}
+
+.preview-item p {
+    color: #a8a8b2;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.preview-item .accent-line {
+    width: 40px;
+    height: 3px;
+    background: #FF8A3D;
+    margin: 1.5rem 0 1rem;
+    border-radius: 3px;
+}
+
+/* ============================================
+   TAG PILLS
+   ============================================ */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.tags span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #B48CFF;
+    border: 1px solid rgba(180, 140, 255, 0.4);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.tags span:hover {
+    color: #FF8A3D;
+    border-color: rgba(255, 138, 61, 0.6);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: #7a7a85;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-link {
+    color: #B48CFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #FF8A3D;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem 1.8rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.8rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding-left: 1.2rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+        padding: 0.9rem 2.2rem;
+        font-size: 1rem;
+    }
+
+    .preview-grid {
+        margin-top: 3rem;
+    }
+
+    /* Hide the orbit on small screens so it doesn't collide with text */
+    .orbit {
+        display: none;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .shader-bg::before,
+    .shader-bg::after,
+    .shader-bg .blob-third,
+    .orbit-outer,
+    .orbit-inner,
+    .orbit-outer.pulsing::before {
+        animation: none !important;
+    }
+}

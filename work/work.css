@@ -1,0 +1,36 @@
+/* ============================================
+   WORK PAGE — page-specific overrides
+   Inherits landingPage.css
+   ============================================ */
+
+.page-hero {
+    padding-bottom: 2rem;
+}
+
+/* Project cards get a link at the bottom */
+.project-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #FF8A3D;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.project-link:hover {
+    color: #B48CFF;
+    transform: translateX(4px);
+}
+
+/* Grid here has fewer cards — keep it from stretching too wide */
+.work-page .preview-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding-bottom: 1rem;
+    }
+}
